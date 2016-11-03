@@ -1,0 +1,145 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1343\cocoasubrtf160
+{\fonttbl\f0\fnil\fcharset0 TrebuchetMS;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red251\green0\blue7;\red1\green21\blue44;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs26 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Assignment 1\'a0\'a0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 Due:\cf3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3  February 10, 2014\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\'a0\
+\pard\pardeftab720\qj
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 This assignment will give you some experience writing and running relational algebra queries.\'a0\'a0 You will use the following educational tool which provides a GUI that can be used for executing relational algebra queries.\
+\pard\pardeftab720\qj
+{\field{\*\fldinst{HYPERLINK "http://code.google.com/p/relational/"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 http://code.google.com/p/relational/}}\'a0\'a0\
+\
+There's a TAB on that page for Downloads.\'a0\'a0 It's easy to install and to run relational algebra queries on a 
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 windows 
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 machine.\'a0\'a0 However, a couple of the relational algebra operators are represented by different symbols than used in our textbook\'92s relational algebra.\
+After installing the software, you will need to create a few tables.\'a0You can do that by downloading the \'a0\'a04 csv files available on Tsquare\'a0(
+\i \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 clients.csv, \'a0pets.csv, vets.csv and visits.csv
+\i0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0  ) to the appropriate directory on your machine.\'a0\'a0 The schemas for the relations are shown below where\'a0the\'a0primary keys are underlined.\
+\pard\pardeftab720\sl306
+
+\b \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 clients
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0  (\expnd0\expndtw0\kerning0
+\ul \outl0\strokewidth0 clientid\expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 , clientname, clientcity)\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 pets
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0  (\expnd0\expndtw0\kerning0
+\ul \outl0\strokewidth0 clientid, petid\expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 , petname, pettype)\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 vets
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0  (\expnd0\expndtw0\kerning0
+\ul \outl0\strokewidth0 vetID\expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 , vetname, vetcity)\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 visits
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0  (\expnd0\expndtw0\kerning0
+\ul \outl0\strokewidth0 clientid, petid, visitdate\expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 , vetid)\
+\pard\pardeftab720
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'b7
+\f1\fs18 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs26 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 clientid is a foreign key in pets referencing the clients relation\
+\'b7
+\f1\fs18 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs26 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 clientid,petid is a foreign key in visits referencing the pets relation\
+\'b7
+\f1\fs18 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f0\fs26 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 vetid is a foreign key in visits referencing the vets relation\
+\'a0\
+\pard\pardeftab720\qj
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Each group will have to write the following 8 queries.\'a0To get the most out of this assignment, one \'a0group member should be responsible for writing \'a0queries 1 through 4 and other for writing queries 5 through 8.\'a0\'a0 However, group members may help each other with their queries.\'a0The point value for\'a0each query\'a0is shown in parentheses.\'a0\'a0\
+\pard\pardeftab720
+
+\b \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 1 (25)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 : \'a0List\'a0the clientid, petid, petname and pettype for all pets who have visited any one vet more than once.\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 2 (10)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 : \'a0List the vetid, vetname and vetcity for any vet who has not had any visits by a pet.\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 3 (10)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 :\'a0\'a0 List all visitdates for pettypes of 'dog' that saw the vet 'who'.\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 4 (5)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 :\'a0List the clientid and\'a0clientname for all clients who live in 'houston'.\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \'a0
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 5 (25)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 : \'a0\'a0List the clientid and\'a0clientname for any pet owner who owns at least one dog and at least one cat.\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 6 (10)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 : \'a0\'a0List the clientid and clientname of every client who has taken any of their pets to a vet located in a city in which the client does not live.\
+\'a0\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 7 (10)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 :\'a0List\'a0the clientid and clientname\'a0for all clients who live in the same city as the vet "spock' is located.\
+
+\b \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 Query 8 (5)
+\b0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 :\'a0\'a0 List the petname for each pet that is a 'dog' or a 'cat'.\
+\'a0\
+\pard\pardeftab720\qj
+\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 After you execute each query, you should copy it from the query window and paste it into a word document.\'a0\'a0 Each group member will submit the complete document of 8 queries via Tsquare by \cf3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 February 10
+\fs22 \expnd0\expndtw0\kerning0
+\super \outl0\strokewidth0 th
+\fs26 \expnd0\expndtw0\kerning0
+\nosupersub \outl0\strokewidth0 \'a0at 9AM.\cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \'a0\'a0 Be sure to specify which 4 queries you were responsible for writing.\'a0Your group will also demo the 8 queries in class on\cf3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3  February 10
+\fs22 \expnd0\expndtw0\kerning0
+\super \outl0\strokewidth0 th
+\fs26 \expnd0\expndtw0\kerning0
+\nosupersub \outl0\strokewidth0  \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 to either the professor or one of the teaching assistants.\'a0At that time they may also ask you some questions about your queries.\
+\'a0\
+}
